@@ -2,12 +2,6 @@
 #include "clientSocket.h"
 #include "clientSocketException.h"
 
-void static __checkArgs(int argc, int expected) {
-  if (argc != expected) {
-    throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./client <host> <puerto>");
-  }
-}
-
 void static __checkListCommand(std::string &response, clientSocket &client) {
   if (!response.compare(0, 3, "150")) {
     while (response.compare(0, 3, "226")) {
@@ -20,7 +14,9 @@ void static __checkListCommand(std::string &response, clientSocket &client) {
 
 int main(int argc, char **argv) {
   try {
-    __checkArgs(argc, 3);
+    if (argc != 3) {
+      throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./client <host> <puerto>");
+    }
     clientSocket client(argv[1], argv[2]);
     client.sendMsg("WELCOME\n");
     std::string msg;

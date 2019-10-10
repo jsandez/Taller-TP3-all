@@ -11,7 +11,7 @@ class serverRmdCommand : public serverCommand {
   std::string dir_name;
  public:
   serverRmdCommand(serverUserAuthentication &user_authentication,
-                   serverCfgMap &cfg_map,
+                   const serverCfgMap &cfg_map,
                    serverMonitorDirectory &directory,
                    std::string dir_name);
   std::string execute() override;

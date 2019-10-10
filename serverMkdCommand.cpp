@@ -3,7 +3,7 @@
 #include <utility>
 
 serverMkdCommand::serverMkdCommand(serverUserAuthentication &user_authentication,
-                                   serverCfgMap &cfg_map,
+                                   const serverCfgMap &cfg_map,
                                    serverMonitorDirectory &directory,
                                    std::string dir_name) : serverCommand(
     user_authentication,

@@ -1,6 +1,6 @@
 #include "serverWelcomeCommand.h"
 
-serverWelcomeCommand::serverWelcomeCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map)
+serverWelcomeCommand::serverWelcomeCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map)
     : serverCommand(
     user_authentication,
     cfg_map) {}

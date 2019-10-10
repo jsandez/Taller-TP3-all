@@ -14,16 +14,16 @@
 class serverCommand {
  protected:
   serverUserAuthentication &user_authentication;
-  serverCfgMap &cfg_map;
+  const serverCfgMap &cfg_map;
 
  public:
-  serverCommand(serverUserAuthentication &user_authenticacion, serverCfgMap &cfg_map);
+  serverCommand(serverUserAuthentication &user_authenticacion, const serverCfgMap &cfg_map);
   virtual std::string execute() = 0;
   bool isAuth();
   std::string unauthMsg();
   static serverCommand *getCommand(std::string msg,
                                    serverUserAuthentication &user_authentication,
-                                   serverCfgMap &cfg_map,
+                                   const serverCfgMap &cfg_map,
                                    serverMonitorDirectory &directory);
   virtual ~serverCommand();
 };

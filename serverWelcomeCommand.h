@@ -7,7 +7,7 @@
  */
 class serverWelcomeCommand : public serverCommand {
  public:
-  serverWelcomeCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map);
+  serverWelcomeCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map);
   std::string execute() override;
 };
 

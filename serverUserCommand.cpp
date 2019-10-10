@@ -3,7 +3,7 @@
 #include "serverUserCommand.h"
 
 serverUserCommand::serverUserCommand(serverUserAuthentication &user_authentication,
-                                     serverCfgMap &cfg_map,
+                                     const serverCfgMap &cfg_map,
                                      std::string user_name) : serverCommand(
     user_authentication,
     cfg_map), user_name(std::move(user_name)) {}

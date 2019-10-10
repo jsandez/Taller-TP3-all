@@ -7,7 +7,7 @@
  */
 class serverInvalidCommand : public serverCommand {
  public:
-  serverInvalidCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map);
+  serverInvalidCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map);
   std::string execute() override;
 };
 

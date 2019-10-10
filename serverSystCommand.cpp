@@ -1,6 +1,6 @@
 #include "serverSystCommand.h"
 
-serverSystCommand::serverSystCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map) : serverCommand(
+serverSystCommand::serverSystCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map) : serverCommand(
         user_authentication, cfg_map) {}
 
 std::string serverSystCommand::execute() {

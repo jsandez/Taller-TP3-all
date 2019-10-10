@@ -1,6 +1,6 @@
 #include "serverListCommand.h"
 
-serverListCommand::serverListCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map, serverMonitorDirectory &directory)
+serverListCommand::serverListCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map, serverMonitorDirectory &directory)
     : serverCommand(
     user_authentication,
     cfg_map), directory(directory) {}

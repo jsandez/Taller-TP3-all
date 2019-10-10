@@ -9,7 +9,7 @@ class serverUserCommand : public serverCommand {
  private:
   std::string user_name;
  public:
-  serverUserCommand(serverUserAuthentication &user_authenticacion, serverCfgMap &cfg_map, std::string user_name);
+  serverUserCommand(serverUserAuthentication &user_authenticacion, const serverCfgMap &cfg_map, std::string user_name);
   std::string execute() override;
 };
 

@@ -18,6 +18,10 @@ serverCfgMap::serverCfgMap(std::string file_name) : input_file_stream(file_name)
   }
 }
 
-std::string serverCfgMap::get(std::string key) {
-  return map[key];
+std::string serverCfgMap::get(std::string key) const {
+  try {
+    return map.at(key);
+  } catch (const std::out_of_range &e) {
+    return "";
+  }
 }

@@ -16,7 +16,7 @@ class serverCfgMap {
   serverInputFileStream input_file_stream;
  public:
   serverCfgMap(std::string file_name);
-  std::string get(std::string key);
+  std::string get(std::string key) const;
 };
 
 #endif

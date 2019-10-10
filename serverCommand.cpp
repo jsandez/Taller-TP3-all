@@ -11,7 +11,7 @@
 #include "serverQuitCommand.h"
 #include "serverInvalidCommand.h"
 
-serverCommand::serverCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map)
+serverCommand::serverCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map)
     : user_authentication(user_authentication), cfg_map(cfg_map) {}
 
 /*
@@ -21,7 +21,7 @@ serverCommand::serverCommand(serverUserAuthentication &user_authentication, serv
 */
 serverCommand *serverCommand::getCommand(std::string msg,
                                          serverUserAuthentication &user_authentication,
-                                         serverCfgMap &cfg_map,
+                                         const serverCfgMap &cfg_map,
                                          serverMonitorDirectory &directory) {
   if (!msg.compare("WELCOME"))
     return new serverWelcomeCommand(user_authentication, cfg_map);

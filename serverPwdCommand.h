@@ -9,7 +9,7 @@
  */
 class serverPwdCommand : public serverCommand {
  public:
-  serverPwdCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map);
+  serverPwdCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map);
   std::string execute() override;
 };
 

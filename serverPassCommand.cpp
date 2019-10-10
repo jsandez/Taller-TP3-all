@@ -3,7 +3,7 @@
 #include "serverPassCommand.h"
 
 serverPassCommand::serverPassCommand(serverUserAuthentication &user_authentication,
-                                     serverCfgMap &cfg_map, std::string password) : serverCommand(
+                                     const serverCfgMap &cfg_map, std::string password) : serverCommand(
     user_authentication,
     cfg_map), password(std::move(password)) {}
 

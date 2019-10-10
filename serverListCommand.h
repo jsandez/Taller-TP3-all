@@ -9,7 +9,7 @@ class serverListCommand : public serverCommand {
  private:
   serverMonitorDirectory &directory;
  public:
-  serverListCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map, serverMonitorDirectory &directory);
+  serverListCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map, serverMonitorDirectory &directory);
   std::string execute() override;
 };
 

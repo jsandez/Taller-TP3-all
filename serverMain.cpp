@@ -5,15 +5,11 @@
 #include "serverSocketException.h"
 #include "serverAcceptThread.h"
 
-void static __checkArgs(int argc, int expected) {
-  if (argc != expected) {
-    throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./server <puerto> <archivo>");
-  }
-}
-
 int main(int argc, char **argv) {
   try {
-    __checkArgs(argc, 3);
+    if (argc != 3) {
+      throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./server <puerto> <archivo>");
+    }
     serverDirectory directory;
     serverCfgMap cfg_map(argv[2]);
     serverMonitorDirectory monitor_directory(directory, cfg_map);

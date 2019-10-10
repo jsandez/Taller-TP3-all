@@ -10,7 +10,7 @@ class serverMkdCommand : public serverCommand {
   serverMonitorDirectory &directory;
   std::string dir_name;
  public:
-  serverMkdCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map, serverMonitorDirectory &directory, std::string dir_name);
+  serverMkdCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map, serverMonitorDirectory &directory, std::string dir_name);
   std::string execute() override;
 };
 

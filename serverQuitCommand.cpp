@@ -1,6 +1,6 @@
 #include "serverQuitCommand.h"
 
-serverQuitCommand::serverQuitCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map) : serverCommand(
+serverQuitCommand::serverQuitCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map) : serverCommand(
     user_authentication, cfg_map) {}
 
 std::string serverQuitCommand::execute() {

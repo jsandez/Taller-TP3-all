@@ -1,6 +1,6 @@
 #include "serverInvalidCommand.h"
 
-serverInvalidCommand::serverInvalidCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map)
+serverInvalidCommand::serverInvalidCommand(serverUserAuthentication &user_authentication, const serverCfgMap &cfg_map)
     : serverCommand(user_authentication, cfg_map) {}
 
 std::string serverInvalidCommand::execute() {

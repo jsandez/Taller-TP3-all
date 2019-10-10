@@ -35,14 +35,7 @@
 *.xml
 
 .idea
-cmake*
-largenum
-alot
-zeroblk
-oneblk
-myfile-asd
-pad
-*.txt
+cmake-build-debug/*
 *.sh
 *.py
 filter_options

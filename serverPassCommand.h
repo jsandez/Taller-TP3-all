@@ -10,7 +10,7 @@ class serverPassCommand : public serverCommand {
   std::string password;
  public:
   serverPassCommand(serverUserAuthentication &user_authentication,
-                    serverCfgMap &cfg_map, std::string password);
+                    const serverCfgMap &cfg_map, std::string password);
   std::string execute() override;
 };
 
