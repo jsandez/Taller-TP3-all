@@ -12,7 +12,6 @@ void clientSocket::__getHostAddrInfo(std::string host, std::string service, addr
   hints.ai_flags = 0;
   int errcode = getaddrinfo(host.c_str(), service.c_str(), &hints, ai_list);
   if (errcode != 0) {
-    freeaddrinfo(*ai_list);
     throw clientSocketException("ERROR GETADDRINFO " + (std::string) gai_strerror(errcode));
   }
 }
@@ -29,7 +28,6 @@ clientSocket::clientSocket(std::string host, std::string service) {
   }
   freeaddrinfo(ai_list);
   if (!connected) {
-    close(this->fd);
     throw clientSocketException("ERROR CONNECT");
   }
 }

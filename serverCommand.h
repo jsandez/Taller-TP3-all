@@ -25,6 +25,7 @@ class serverCommand {
                                    serverUserAuthentication &user_authentication,
                                    serverCfgMap &cfg_map,
                                    serverMonitorDirectory &directory);
+  virtual ~serverCommand();
 };
 
 #endif

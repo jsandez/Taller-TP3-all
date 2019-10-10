@@ -57,3 +57,4 @@ std::string serverCommand::unauthMsg() {
   return "530 " + this->cfg_map.get("clientNotLogged") + "\n";
 }
 
+serverCommand::~serverCommand() {}
