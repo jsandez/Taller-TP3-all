@@ -9,7 +9,6 @@ class serverHelpCommand : public serverCommand{
 public:
     serverHelpCommand(serverUserAuthentication& user_authentication, serverCfgMap& cfg_map);
     std::string execute() override ;
-    ~serverHelpCommand();
 };
 
 

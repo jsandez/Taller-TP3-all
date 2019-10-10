@@ -11,7 +11,6 @@ class serverPwdCommand : public serverCommand {
  public:
   serverPwdCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map);
   std::string execute() override;
-  ~serverPwdCommand();
 };
 
 #endif

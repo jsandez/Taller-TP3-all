@@ -23,5 +23,3 @@ std::string serverDirectory::getDirectory(std::string format) {
   }
   return std::move(msg_return);
 }
-
-serverDirectory::~serverDirectory() {}

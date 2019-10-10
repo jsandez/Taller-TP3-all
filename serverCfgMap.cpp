@@ -21,5 +21,3 @@ serverCfgMap::serverCfgMap(std::string file_name) : input_file_stream(file_name)
 std::string serverCfgMap::get(std::string key) {
   return map[key];
 }
-
-serverCfgMap::~serverCfgMap() {}

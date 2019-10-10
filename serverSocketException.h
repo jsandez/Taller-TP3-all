@@ -13,7 +13,6 @@ class serverSocketException : public std::exception {
  public:
   serverSocketException(std::string msg) noexcept;
   virtual const char *what() const noexcept;
-  ~serverSocketException();
 };
 
 #endif

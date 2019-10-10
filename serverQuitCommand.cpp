@@ -6,6 +6,3 @@ serverQuitCommand::serverQuitCommand(serverUserAuthentication &user_authenticati
 std::string serverQuitCommand::execute() {
   return "221 " + this->cfg_map.get("quitSuccess") + "\n";
 }
-
-serverQuitCommand::~serverQuitCommand() {}
-

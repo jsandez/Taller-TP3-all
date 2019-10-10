@@ -15,7 +15,6 @@ private:
 public:
     serverInputFileException(std::string msg) noexcept ;
     virtual const char* what() const noexcept ;
-    ~serverInputFileException();
 };
 
 #endif

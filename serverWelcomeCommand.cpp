@@ -8,5 +8,3 @@ serverWelcomeCommand::serverWelcomeCommand(serverUserAuthentication &user_authen
 std::string serverWelcomeCommand::execute() {
   return "220 " + this->cfg_map.get("newClient") + "\n";
 }
-
-serverWelcomeCommand::~serverWelcomeCommand() {}

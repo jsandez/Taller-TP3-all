@@ -5,5 +5,3 @@ serverInputFileException::serverInputFileException(std::string msg) noexcept : m
 const char *serverInputFileException::what() const noexcept {
   return this->msg.c_str();
 }
-
-serverInputFileException::~serverInputFileException() {}

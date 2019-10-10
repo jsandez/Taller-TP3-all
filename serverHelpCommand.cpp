@@ -9,5 +9,3 @@ std::string serverHelpCommand::execute() {
   else
     return "214 " + this->cfg_map.get("commands") + "\n";
 }
-
-serverHelpCommand::~serverHelpCommand() {}

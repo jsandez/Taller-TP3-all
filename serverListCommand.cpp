@@ -16,5 +16,3 @@ std::string serverListCommand::execute() {
     return std::move(msg_return);
   }
 }
-
-serverListCommand::~serverListCommand() {}

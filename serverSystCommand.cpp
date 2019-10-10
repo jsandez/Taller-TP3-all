@@ -9,5 +9,3 @@ std::string serverSystCommand::execute() {
     else
         return "215 " + this->cfg_map.get("systemInfo") + "\n";
 }
-
-serverSystCommand::~serverSystCommand() {}

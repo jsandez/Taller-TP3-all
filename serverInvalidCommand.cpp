@@ -6,5 +6,3 @@ serverInvalidCommand::serverInvalidCommand(serverUserAuthentication &user_authen
 std::string serverInvalidCommand::execute() {
   return "530 " + this->cfg_map.get("unknownCommand") + "\n";
 }
-
-serverInvalidCommand::~serverInvalidCommand() {}

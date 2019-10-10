@@ -13,5 +13,3 @@ std::string serverUserCommand::execute() {
   this->user_authentication.setState(LOGIN_PROVIDED);
   return "331 " + this->cfg_map.get("passRequired") + "\n";
 }
-
-serverUserCommand::~serverUserCommand() {}

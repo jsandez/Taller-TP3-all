@@ -26,7 +26,6 @@ class serverUserAuthentication {
   void setState(UserState state);
   std::string getUser() const;
   bool checkState(UserState user_state);
-  ~serverUserAuthentication();
 };
 
 #endif

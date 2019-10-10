@@ -11,7 +11,6 @@ class serverListCommand : public serverCommand {
  public:
   serverListCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map, serverMonitorDirectory &directory);
   std::string execute() override;
-  ~serverListCommand();
 };
 
 #endif

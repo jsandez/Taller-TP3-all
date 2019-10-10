@@ -10,6 +10,5 @@ class clientSocketException : public std::exception {
  public:
   clientSocketException(std::string msg) noexcept;
   virtual const char *what() const noexcept;
-  ~clientSocketException();
 };
 #endif

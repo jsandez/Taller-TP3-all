@@ -27,5 +27,3 @@ std::string serverMonitorDirectory::getDirectory(std::string format) {
   std::lock_guard<std::mutex> l(m);
   return this->directory.getDirectory(format);
 }
-
-serverMonitorDirectory::~serverMonitorDirectory() {}

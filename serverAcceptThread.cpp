@@ -47,5 +47,3 @@ void serverAcceptThread::stop() {
     delete th;
   }
 }
-
-serverAcceptThread::~serverAcceptThread() {}

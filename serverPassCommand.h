@@ -12,7 +12,6 @@ class serverPassCommand : public serverCommand {
   serverPassCommand(serverUserAuthentication &user_authentication,
                     serverCfgMap &cfg_map, std::string password);
   std::string execute() override;
-  ~serverPassCommand();
 };
 
 #endif

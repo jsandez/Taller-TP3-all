@@ -17,7 +17,6 @@ class serverCfgMap {
  public:
   serverCfgMap(std::string file_name);
   std::string get(std::string key);
-  ~serverCfgMap();
 };
 
 #endif

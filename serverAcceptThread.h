@@ -33,7 +33,6 @@ class serverAcceptThread : public serverThread {
   virtual void run() override;
   virtual void stop() override;
   virtual bool isAlive() override;
-  ~serverAcceptThread();
 };
 
 #endif

@@ -14,5 +14,3 @@ std::string serverRmdCommand::execute() {
     return std::move(directory.removeUniq(dir_name));
   }
 }
-
-serverRmdCommand::~serverRmdCommand() {}

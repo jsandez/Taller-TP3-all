@@ -18,7 +18,6 @@ class serverDirectory {
   void deleteFile(std::string name);
   bool isFile(std::string name);
   std::string getDirectory(std::string format);
-  ~serverDirectory();
 };
 
 #endif

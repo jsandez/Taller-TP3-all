@@ -19,5 +19,3 @@ std::string serverUserAuthentication::getUser() const {
 bool serverUserAuthentication::checkState(UserState user_state) {
   return (this->state == user_state);
 }
-
-serverUserAuthentication::~serverUserAuthentication() {}

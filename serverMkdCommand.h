@@ -12,7 +12,6 @@ class serverMkdCommand : public serverCommand {
  public:
   serverMkdCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map, serverMonitorDirectory &directory, std::string dir_name);
   std::string execute() override;
-  ~serverMkdCommand();
 };
 
 #endif

@@ -11,5 +11,3 @@ std::string serverPwdCommand::execute() {
   else
     return "257 " + this->cfg_map.get("currentDirectoryMsg") + "\n";
 }
-
-serverPwdCommand::~serverPwdCommand() {}

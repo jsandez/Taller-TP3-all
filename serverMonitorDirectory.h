@@ -20,7 +20,6 @@ class serverMonitorDirectory {
   std::string addUniq(std::string dir_name);
   std::string removeUniq(std::string dir_name);
   std::string getDirectory(std::string format);
-  ~serverMonitorDirectory();
 };
 
 #endif

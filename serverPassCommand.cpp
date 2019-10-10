@@ -17,5 +17,3 @@ std::string serverPassCommand::execute() {
     return "530 " + this->cfg_map.get("loginFailed") + "\n";
   }
 }
-
-serverPassCommand::~serverPassCommand() {}

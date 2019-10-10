@@ -16,5 +16,3 @@ std::string serverMkdCommand::execute() {
     return std::move(directory.addUniq(dir_name));
   }
 }
-
-serverMkdCommand::~serverMkdCommand() {}

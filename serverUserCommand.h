@@ -11,8 +11,6 @@ class serverUserCommand : public serverCommand {
  public:
   serverUserCommand(serverUserAuthentication &user_authenticacion, serverCfgMap &cfg_map, std::string user_name);
   std::string execute() override;
-  ~serverUserCommand();
-
 };
 
 #endif

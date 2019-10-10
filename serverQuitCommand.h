@@ -10,7 +10,6 @@ class serverQuitCommand : public serverCommand {
  public:
   serverQuitCommand(serverUserAuthentication &user_authentication, serverCfgMap &cfg_map);
   std::string execute() override;
-  ~serverQuitCommand();
 };
 
 #endif

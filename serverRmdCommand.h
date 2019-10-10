@@ -15,7 +15,6 @@ class serverRmdCommand : public serverCommand {
                    serverMonitorDirectory &directory,
                    std::string dir_name);
   std::string execute() override;
-  ~serverRmdCommand();
 };
 
 #endif
