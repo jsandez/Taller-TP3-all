@@ -1,7 +1,7 @@
 #include "serverClientThread.h"
-#include "serverSocketException.h"
+#include "commonSocketException.h"
 
-serverClientThread::serverClientThread(serverSocket &socket_server,
+serverClientThread::serverClientThread(commonSocket &socket_server,
                                        serverCfgMap &cfg_map,
                                        serverMonitorDirectory &directory)
     : keep_talking(true),
@@ -16,11 +16,11 @@ void serverClientThread::run() {
     try {
       request.erase();
       response.erase();
-      this->socket_server.recvMsg(request);
+      this->socket_server.recvMsg(request, '\n');
       this->ftp_server.executeCommand(request, response);
       this->socket_server.sendMsg(response);
     }
-    catch (const serverSocketException &e) {
+    catch (const commonSocketException &e) {
       stop();
     }
   }

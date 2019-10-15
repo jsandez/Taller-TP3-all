@@ -1,10 +1,9 @@
 #include <iostream>
 #include "serverAcceptThread.h"
-#include "serverSocket.h"
-#include "serverSocketException.h"
 #include "serverClientThread.h"
+#include "commonSocketException.h"
 
-serverAcceptThread::serverAcceptThread(serverSocket &socket_server,
+serverAcceptThread::serverAcceptThread(commonSocket &socket_server,
                                        serverCfgMap &cfg_map,
                                        serverMonitorDirectory &monitor_directory)
     : socket_server(socket_server),
@@ -14,8 +13,8 @@ serverAcceptThread::serverAcceptThread(serverSocket &socket_server,
 void serverAcceptThread::run() {
   while (1) {
     try {
-      serverSocket srvAccept = socket_server.accept();
-      serverThread *th = new serverClientThread(srvAccept,
+      commonSocket srvAccept = socket_server.accept();
+      commonThread *th = new serverClientThread(srvAccept,
                                                 cfg_map,
                                                 monitor_directory);
       ths.push_back(th);
@@ -29,7 +28,7 @@ void serverAcceptThread::run() {
         } else
           it++;
       }
-    } catch (const serverSocketException &e) {
+    } catch (const commonSocketException &e) {
       std::cout << "SERVER SHUTDOWN" << std::endl;
       break;
     }
@@ -41,9 +40,11 @@ bool serverAcceptThread::isAlive() {
 }
 
 void serverAcceptThread::stop() {
-  for (serverThread *th: ths) {
+  for (commonThread *th: ths) {
     th->stop();
     th->join();
     delete th;
   }
+  this->socket_server.shutdownSocket();
+  this->socket_server.closeSocket();
 }

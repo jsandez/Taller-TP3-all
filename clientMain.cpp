@@ -1,12 +1,13 @@
 #include <iostream>
-#include "clientSocket.h"
-#include "clientSocketException.h"
+#include <cstring>
+#include "commonSocket.h"
+#include "commonSocketException.h"
 
-void static __checkListCommand(std::string &response, clientSocket &client) {
+void static __checkListCommand(std::string &response, commonSocket &client) {
   if (!response.compare(0, 3, "150")) {
     while (response.compare(0, 3, "226")) {
       response.erase();
-      client.recvMsg(response);
+      client.recvMsg(response, '\n');
       std::cout << response << std::endl;
     }
   }
@@ -17,11 +18,12 @@ int main(int argc, char **argv) {
     if (argc != 3) {
       throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./client <host> <puerto>");
     }
-    clientSocket client(argv[1], argv[2]);
-    client.sendMsg("WELCOME\n");
+    commonSocket client_socket;
+    client_socket.connect(argv[1], argv[2]);
+    client_socket.sendMsg("WELCOME\n");
     std::string msg;
     std::string response;
-    client.recvMsg(response);
+    client_socket.recvMsg(response, '\n');
     std::cout << response << std::endl;
     while (true) {
       msg.erase();
@@ -30,16 +32,21 @@ int main(int argc, char **argv) {
       if (!std::cin) {
         break;
       }
-      client.sendMsg(msg + "\n");
-      client.recvMsg(response);
+      client_socket.sendMsg(msg + "\n");
+      client_socket.recvMsg(response, '\n');
       std::cout << response << std::endl;
-      __checkListCommand(response, client);
+      __checkListCommand(response, client_socket);
       if (!response.compare(0, 3, "221")) {
         break;
       }
     }
-  } catch (const clientSocketException &e) {
-    std::cout << e.what() << std::endl;
+    client_socket.shutdownSocket();
+  } catch (const commonSocketException &e) {
+    if (strncmp(e.what(), "SOCKET CLOSED", 13) == 0) {
+      std::cout << "SERVER SHUTDOWN" << std::endl;
+    } else {
+      std::cout << e.what() << std::endl;
+    }
     return 0;
   } catch (...) {
     std::cout << "ERROR DESCONOCIDO" << std::endl;

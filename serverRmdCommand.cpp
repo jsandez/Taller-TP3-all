@@ -3,9 +3,9 @@
 serverRmdCommand::serverRmdCommand(serverUserAuthentication &user_authentication,
                                    const serverCfgMap &cfg_map,
                                    serverMonitorDirectory &directory,
-                                   std::string dir_name) : serverCommand(user_authentication, cfg_map),
-                                               directory(directory),
-                                               dir_name(std::move(dir_name)) {}
+                                   const std::string &dir_name) : serverCommand(user_authentication, cfg_map),
+                                                                  directory(directory),
+                                                                  dir_name(dir_name) {}
 
 std::string serverRmdCommand::execute() {
   if (!isAuth())

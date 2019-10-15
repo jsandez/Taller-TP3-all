@@ -1,9 +1,9 @@
 #ifndef _CLIENTTHREAD_H_
 #define _CLIENTTHREAD_H_
-#include "serverSocket.h"
 #include <atomic>
-#include "serverThread.h"
+#include "commonThread.h"
 #include "serverFTPServer.h"
+#include "commonSocket.h"
 
 /*
  * Clase que representa al ciclo de vida de
@@ -13,15 +13,15 @@
  * Utiliza variables atomicas para determinar
  * cuando el socket esta "muerto"
  */
-class serverClientThread : public serverThread {
+class serverClientThread : public commonThread {
  private:
   std::atomic<bool> keep_talking;
   std::atomic<bool> is_running;
-  serverSocket socket_server;
+  commonSocket socket_server;
   serverFTPServer ftp_server;
 
  public:
-  serverClientThread(serverSocket &socket_server,
+  serverClientThread(commonSocket &socket_server,
                      serverCfgMap &cfg_map,
                      serverMonitorDirectory &directory);
   virtual void run() override;

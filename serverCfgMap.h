@@ -2,7 +2,7 @@
 #define _CFGMAP_H_
 #include <string>
 #include <map>
-#include "serverInputFileStream.h"
+#include <fstream>
 
 /*
  * Clas que representa
@@ -13,10 +13,10 @@
 class serverCfgMap {
  private:
   std::map<std::string, std::string> map;
-  serverInputFileStream input_file_stream;
+  std::ifstream& input_file_stream;
  public:
-  serverCfgMap(std::string file_name);
-  std::string get(std::string key) const;
+  serverCfgMap(std::ifstream& input_file_stream);
+  std::string get(const std::string& key) const;
 };
 
 #endif

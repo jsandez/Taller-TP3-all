@@ -22,7 +22,7 @@ class serverUserAuthentication {
 
  public:
   serverUserAuthentication();
-  void user(std::string user_name);
+  void user(const std::string& user_name);
   void setState(UserState state);
   std::string getUser() const;
   bool checkState(UserState user_state);

@@ -1,17 +1,17 @@
 #ifndef _ACCEPTTHREAD_H_
 #define _ACCEPTTHREAD_H_
 #include <list>
-#include "serverThread.h"
+#include "commonThread.h"
 #include "serverCfgMap.h"
 #include "serverMonitorDirectory.h"
-#include "serverSocket.h"
+#include "commonSocket.h"
 
 /*
  * Thread aceptador de clientes.
  * Tambien es el encargado de cerrar las conexiones
  * de forma correcta cuando el servidor se apaga.
  */
-class serverAcceptThread : public serverThread {
+class serverAcceptThread : public commonThread {
  private:
   /*
    * Tiene una referencia al archivo de configuracion
@@ -23,13 +23,13 @@ class serverAcceptThread : public serverThread {
    * cada uno de los clientes.
    * Por ultimo, el socket que sirve como aceptador.
    */
-  serverSocket &socket_server;
+  commonSocket &socket_server;
   serverCfgMap &cfg_map;
   serverMonitorDirectory &monitor_directory;
-  std::list<serverThread *> ths;
+  std::list<commonThread *> ths;
 
  public:
-  serverAcceptThread(serverSocket &socket_server, serverCfgMap &cfg_map, serverMonitorDirectory &directory);
+  serverAcceptThread(commonSocket &socket_server, serverCfgMap &cfg_map, serverMonitorDirectory &directory);
   virtual void run() override;
   virtual void stop() override;
   virtual bool isAlive() override;

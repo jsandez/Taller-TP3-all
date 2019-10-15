@@ -6,9 +6,10 @@
  * archivo de configuracion no posee el caracter =
  * entonces se tomara como archivo invalido.
  */
-serverCfgMap::serverCfgMap(std::string file_name) : input_file_stream(file_name) {
+serverCfgMap::serverCfgMap(std::ifstream &input_file_stream) :
+    input_file_stream(input_file_stream) {
   std::string line;
-  while (this->input_file_stream.getLine(line) != -1) {
+  while (std::getline(this->input_file_stream, line)) {
     size_t found = line.find('=');
     if (found == std::string::npos) {
       throw serverInputFileException("INCORRECT ENTRY IN CFG FILE");
@@ -18,7 +19,7 @@ serverCfgMap::serverCfgMap(std::string file_name) : input_file_stream(file_name)
   }
 }
 
-std::string serverCfgMap::get(std::string key) const {
+std::string serverCfgMap::get(const std::string &key) const {
   try {
     return map.at(key);
   } catch (const std::out_of_range &e) {

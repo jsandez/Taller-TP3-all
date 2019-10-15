@@ -4,7 +4,7 @@ serverUserAuthentication::serverUserAuthentication() {
   this->state = NOT_AUTHENTICATED;
 }
 
-void serverUserAuthentication::user(std::string user_name) {
+void serverUserAuthentication::user(const std::string& user_name) {
   this->user_name = user_name;
 }
 

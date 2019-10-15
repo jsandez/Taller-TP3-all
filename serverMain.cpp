@@ -1,9 +1,9 @@
 #include <iostream>
 #include "serverInputFileException.h"
-#include "serverSocket.h"
+#include "commonSocket.h"
 #include "serverMonitorDirectory.h"
-#include "serverSocketException.h"
 #include "serverAcceptThread.h"
+#include "commonSocketException.h"
 
 int main(int argc, char **argv) {
   try {
@@ -11,10 +11,15 @@ int main(int argc, char **argv) {
       throw std::runtime_error("ARGUMENTOS INVALIDOS. \nINGRESAR ./server <puerto> <archivo>");
     }
     serverDirectory directory;
-    serverCfgMap cfg_map(argv[2]);
+    std::ifstream input_file_stream(argv[2]);
+    if (input_file_stream.fail()) {
+      throw serverInputFileException("FALLO AL ABRIR EL ARCHIVO");
+    }
+    serverCfgMap cfg_map(input_file_stream);
     serverMonitorDirectory monitor_directory(directory, cfg_map);
-    serverSocket srv((std::string) argv[1]);
-    serverAcceptThread accept_thread(srv, cfg_map, monitor_directory);
+    commonSocket socket_server;
+    socket_server.bindAndListen((std::string) argv[1], 20);
+    serverAcceptThread accept_thread(socket_server, cfg_map, monitor_directory);
     accept_thread.start();
     char a = 0;
     while (std::cin.get(a)) {
@@ -22,13 +27,11 @@ int main(int argc, char **argv) {
         break;
     }
     accept_thread.stop();
-    srv.shutdownSocket();
-    srv.closeSocket();
     accept_thread.join();
   } catch (const serverInputFileException &e) {
     std::cout << e.what() << std::endl;
     return 0;
-  } catch (const serverSocketException &e) {
+  } catch (const commonSocketException &e) {
     std::cout << e.what() << std::endl;
     return 0;
   } catch (...) {

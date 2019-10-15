@@ -6,22 +6,22 @@
  * Interfaz de thread que luego
  * utilizaran los hilos especificos
  */
-class serverThread {
+class commonThread {
  private:
   std::thread thread;
 
  public:
-  serverThread();
+  commonThread();
   void start();
   void join();
   virtual void run() = 0;
   virtual void stop() = 0;
   virtual bool isAlive() = 0;
-  virtual ~serverThread();
-  serverThread(const serverThread &) = delete;
-  serverThread &operator=(const serverThread &) = delete;
-  serverThread(serverThread &&other);
-  serverThread &operator=(serverThread &&other);
+  virtual ~commonThread();
+  commonThread(const commonThread &) = delete;
+  commonThread &operator=(const commonThread &) = delete;
+  commonThread(commonThread &&other);
+  commonThread &operator=(commonThread &&other);
 };
 
 #endif

@@ -5,9 +5,9 @@
 serverMkdCommand::serverMkdCommand(serverUserAuthentication &user_authentication,
                                    const serverCfgMap &cfg_map,
                                    serverMonitorDirectory &directory,
-                                   std::string dir_name) : serverCommand(
+                                   const std::string &dir_name) : serverCommand(
     user_authentication,
-    cfg_map), directory(directory), dir_name(std::move(dir_name)) {}
+    cfg_map), directory(directory), dir_name(dir_name) {}
 
 std::string serverMkdCommand::execute() {
   if (!isAuth())
